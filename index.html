@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Band Name Generator</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+
+    .card {
+      background: #020617;
+      padding: 2rem 2.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h1 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.8rem;
+    }
+
+    p.description {
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      color: #9ca3af;
+      font-size: 0.95rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.9rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      margin-bottom: 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid #334155;
+      background: #020617;
+      color: #e5e7eb;
+      box-sizing: border-box;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 1px #38bdf8;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.6rem 0.75rem;
+      border-radius: 0.5rem;
+      border: none;
+      background: #38bdf8;
+      color: #0f172a;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    button:hover {
+      background: #0ea5e9;
+    }
+
+    #result {
+      margin-top: 1rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .note {
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      color: #6b7280;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Band Name Generator</h1>
+    <p class="description">
+      Enter the city you grew up in and your pet's name to get a fun band name.
+    </p>
+
+    <label for="city">City you grew up in</label>
+    <input id="city" type="text" placeholder="e.g. Paris">
+
+    <label for="pet">Your pet's name</label>
+    <input id="pet" type="text" placeholder="e.g. Milo">
+
+    <button onclick="generateBandName()">Generate Band Name</button>
+
+    <div id="result"></div>
+    <div class="note">
+      (This is a browser version of your Python project!)
+    </div>
+  </div>
+
+  <script>
+    function generateBandName() {
+      const city = document.getElementById('city').value.trim();
+      const pet = document.getElementById('pet').value.trim();
+      const result = document.getElementById('result');
+
+      if (!city || !pet) {
+        result.textContent = "Please fill out both fields.";
+        return;
+      }
+
+      result.textContent = `Your band name could be: ${city} ${pet}`;
+    }
+  </script>
+</body>
+</html>
